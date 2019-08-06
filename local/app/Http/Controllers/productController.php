@@ -144,6 +144,34 @@ class productController extends Controller
 
     }
 
+    public function datatable_productfind(Request $request){
+
+            
+
+        $product_out = DB::table('product_log')
+        ->join('product_status', 'product_log.product_status_id', '=', 'product_status.product_status_id')
+        ->join('product', 'product.uid', '=', 'product_log.product_uid');
+
+ 
+        if($key_star = $request->input('datestart') && $key_end = $request->input('dateend') ){	
+            $product_out->WhereBetween(\DB::raw('substr(product_log.product_log_date, 1, 10)'), [$request->input('datestart'), $request->input('dateend')]);			
+        }	
+        if($key_inout = $request->input('statuspro')){			
+            $product_out->Where('product_log.product_status_id', '=', $key_inout);			
+        }
+        if($classn = $request->input('classno')){			
+            $product_out->Where('product.product_class_no', '=', $classn);		
+        }
+        // if($key_end = request('dateend')){			
+        //     $product_out->Where(\DB::raw('substr(product_log.product_log_date, 1, 10)'),$key_end);			
+        // }		      
+        $dataproduct = $product_out->get();
+        $sQuery	= Datatables::of($dataproduct);
+        return $sQuery->escapeColumns([])->make(true);    
+
+}
+
+
     public function productfindday(Request $request){
 
         $status = $request->input('statuspro');
@@ -166,7 +194,7 @@ class productController extends Controller
     }
 
     public function datatable_product(Request $request){
-
+        //findday
             
 
             $product_out = DB::table('product_log')
@@ -191,7 +219,7 @@ class productController extends Controller
             return $sQuery->escapeColumns([])->make(true);    
 
     }
-    // ------------------------------------------------------------------------------------------------------
+    ////*********************************************************************************************************//
 
     public function productlog()
     {
@@ -327,7 +355,7 @@ class productController extends Controller
     }
     
 
-
+//**" insert  "******************************************************************************################ */
     public function inRegister(Request $request)
     {
         //เอา insert_ID

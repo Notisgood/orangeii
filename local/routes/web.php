@@ -44,8 +44,8 @@ Route::post('/inProductOut','productController@inProductOut')->name('inProductOu
 Route::get('/addlot','productController@addlot');
 
 
- Route::get('datatable_product','productController@datatable_product');
-
+Route::get('datatable_product','productController@datatable_product');
+Route::get('datatable_productfind', 'productController@datatable_productfind');
 
 
 
