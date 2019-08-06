@@ -24,9 +24,9 @@ Route::get('reportdaily', 'productController@reportdaily')->name('reportdaily');
 Route::get('reportstaff', 'productController@reportstaff')->name('reportstaff');
 Route::get('reportproduct', 'productController@reportproduct')->name('reportproduct');
 // search
-Route::post('/productsearch', 'productController@productsearch')->name('productsearch');
-Route::post('/productfind', 'productController@productfind')->name('productfind');
-Route::post('/productfindday', 'productController@productfindday')->name('productfindday');
+Route::get('/productsearch', 'productController@productsearch')->name('productsearch');
+Route::get('/productfind', 'productController@productfind')->name('productfind');
+Route::get('/productfindday', 'productController@productfindday')->name('productfindday');
 
 // ajax request
 Route::post('/getProduct','productController@getProduct')->name('getProduct');
@@ -42,6 +42,12 @@ Route::post('/inProductIn','productController@inProductIn')->name('inProductIn')
 Route::post('/inProductOut','productController@inProductOut')->name('inProductOut');
 //forloop insert
 Route::get('/addlot','productController@addlot');
+
+
+ Route::get('datatable_product','productController@datatable_product');
+
+
+
 
 //auth
 Auth::routes();

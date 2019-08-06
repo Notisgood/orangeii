@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+use \Milon\Barcode\DNS1D;
 
 class productController extends Controller
 {
@@ -126,7 +128,7 @@ class productController extends Controller
                     ->join('product', 'product.uid', '=', 'product_log.product_uid')
                     ->whereBetween(\DB::raw('substr(product_log_date, 1, 10)'), [$start, $end])
                     ->Where('product_log.product_status_id', '=', $status )
-                    ->orWhere('product.product_class_no', '=', $classn )
+                    ->Where('product.product_class_no', '=', $classn )
                     ->get();
                     $product_stat = DB::table('product_status')
                     ->get();
@@ -163,7 +165,33 @@ class productController extends Controller
 
     }
 
-    //end  product search //*************************************************************************** */
+    public function datatable_product(Request $request){
+
+            
+
+            $product_out = DB::table('product_log')
+            ->join('product_status', 'product_log.product_status_id', '=', 'product_status.product_status_id')
+            ->join('product', 'product.uid', '=', 'product_log.product_uid');
+   
+     
+            if($key_star = $request->input('datestart') && $key_end = $request->input('dateend') ){	
+                $product_out->WhereBetween(\DB::raw('substr(product_log.product_log_date, 1, 10)'), [$request->input('datestart'), $request->input('dateend')]);			
+            }	
+            if($key_inout = $request->input('statuspro')){			
+                $product_out->Where('product_log.product_status_id', '=', $key_inout);			
+            }
+            // if($key_star = request('datestart')){			
+            //     $product_out->Where(\DB::raw('substr(product_log.product_log_date, 1, 10)'),$key_star);			
+            // }
+            // if($key_end = request('dateend')){			
+            //     $product_out->Where(\DB::raw('substr(product_log.product_log_date, 1, 10)'),$key_end);			
+            // }		      
+            $dataproduct = $product_out->get();
+            $sQuery	= Datatables::of($dataproduct);
+            return $sQuery->escapeColumns([])->make(true);    
+
+    }
+    // ------------------------------------------------------------------------------------------------------
 
     public function productlog()
     {
@@ -343,7 +371,7 @@ class productController extends Controller
     public function inProductIn(Request $request)
     {
         //เอา insert_ID
-        
+        $barcodelot = $request->input('barcodelot').$request->input('lot');
         $last_id_employe1e = DB::table('product_log')->insertGetId([
             'product_uid' => $request->input('id'),
             'product_detail' => $request->input('detail'),
@@ -352,7 +380,7 @@ class productController extends Controller
             'product_log_detail' => $request->input('lot'),
             'product_status_id' => '1',
             'product_log_date' => date('Y-m-d H:i:s'),
-            
+            'lot_barcode' => $barcodelot,
         ]);
         $member =   DB::table('product_log')
             ->where('product_log_id',$last_id_employe1e)
@@ -474,5 +502,30 @@ class productController extends Controller
 
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

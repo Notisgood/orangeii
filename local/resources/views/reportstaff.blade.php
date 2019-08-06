@@ -20,7 +20,7 @@
             <hr style="width: 95%;" style="margin-top: 20px;">
     </div>    
     <div class="card-block">
-            <form  name="myfrom" method="post" action="{{ route('productsearch') }}">
+            <form  name="myfrom" method="get" action="{{ route('productsearch') }}">
                     {{ csrf_field() }}
             <div class="row seacrh-header">
                     <div class="col-lg-6 offset-lg-3 offset-sm-3 col-sm-6 offset-sm-1 col-xs-12">

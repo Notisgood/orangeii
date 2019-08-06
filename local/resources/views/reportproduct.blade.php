@@ -22,7 +22,7 @@
     <div class="card-block">
             <div class="row">
                 <div class="col-12">
-                <form  name="myfrom" method="post" action="{{ route('productfind')}}">
+                <form  name="myfrom" method="get" action="{{ route('productfind')}}">
                             {{ csrf_field() }}
                         <div class="form-group row">
                             <div class="col-sm-3">

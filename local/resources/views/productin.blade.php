@@ -113,6 +113,10 @@
                         </div>
                         <label class="col-sm-2 col-form-label text-center">LOT</label>
                         <div class="col-sm-4">
+                                <?php 
+                                $test = "40-HAM-0007"."123456";
+                                 DNS1D::getBarcodeSVG($test, "C128");
+                                 ?>
                             <input type="text" class="form-control" id="lot" name="product_log_detail" 
                                 autocomplete="off">
                         </div>
@@ -359,6 +363,8 @@ $(document).ready(function(){
     var lot = $("#lot").val();
     var amount = $("#product_log_amount").val();
     var by = $("#by").val();
+    var barcode = $("#barcode").val();
+
     console.log(uid);
     console.log(detail);
     console.log(lot);
@@ -374,6 +380,7 @@ $(document).ready(function(){
                 'lot' : lot,
                 'amount' : amount,
                 'by' : by,
+                'barcodelot' : barcode,
             },
             type: "POST",
             dataType: "JSON",
