@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
         /*
          * Package Service Providers...
