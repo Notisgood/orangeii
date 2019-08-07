@@ -17,9 +17,12 @@ class MemberController extends Controller
         $staff_all = DB::table('users')
             ->join('roles', 'users.user_role', '=', 'roles.roles_id')
             ->get();
+        $roles_all = DB::table('roles')
+            ->get();
         return view('addstaff',
             array(
                 'staff_all' => $staff_all,
+                'roles_all' => $roles_all,
                 
             ));
     }

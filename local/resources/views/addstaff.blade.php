@@ -69,12 +69,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ตำแหน่ง</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="role" required
-                                    autocomplete="off">
+                                <label class="col-sm-2 col-form-label"> ตำแหน่ง</label>
+                                <div class="col-sm-10">
+                                    <select name="role" class="form-control" required>
+                                        <option value="">-- กรุณาเลือก --</option>
+                                        @foreach ($roles_all as $key => $r)
+                                        <option value="{{$r->roles_id}}">
+                                            {{$r->roles_des}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">E-mail</label>
                             <div class="col-sm-10">
