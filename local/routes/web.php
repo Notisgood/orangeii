@@ -1,6 +1,6 @@
 <?php
 Route::get('/', function () {
-    return view('login');
+    return view('auth/login');
 });
 Route::get('test','homeController@blank');
 //
@@ -9,7 +9,11 @@ Route::get('home', 'productController@home')->name('home');
 Route::get('profile', 'productController@profile')->name('profile');
 Route::get('dashboard', 'productController@dashboard')->name('dashboard');
 
+//register start
+Route::post('add', 'MemberController@add')->name('add');
+Route::get('addstaff', 'MemberController@addstaff')->name('addstaff');
 Route::get('register', 'productController@register')->name('register');
+//register end
 
 Route::get('productlist', 'productController@productlist')->name('productlist');
 Route::get('productexp', 'productController@productexp')->name('productexp');

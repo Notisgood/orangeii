@@ -602,9 +602,9 @@ li.edge > ul {
   float: none; }
 .pcoded .pcoded-navbar[navbar-theme="themelight1"] {
   background-color: #fff; }
-.pcoded .pcoded-navbar[navbar-theme="theme1"] {
+.pcoded .pcoded-navbar[navbar-theme="theme1"] { 
   background-color: #3b4650; }
-.pcoded .pcoded-header[header-theme="theme1"] {
+.pcoded .pcoded-header[header-theme="theme1"] { 
   background: -webkit-gradient(linear, left top, right top, from(#1b1f24), to(#51606d));
   background: linear-gradient(to right, #1b1f24, #51606d); }
 .pcoded .pcoded-header[header-theme="theme2"] {

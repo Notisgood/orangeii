@@ -2,8 +2,15 @@
     <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
     <div class="pcoded-inner-navbar main-menu">
 
-        <!--        <div class="pcoded-navigation-label">Admin</div>-->
+         <div class="pcoded-navigation-label">Admin</div>
         <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                        <a href="{{route('addstaff')}}">
+                            <span class="pcoded-micon"><i class="icofont icofont-list"></i><b>N</b></span>
+                            <span class="pcoded-mtext">จัดการพนักงาน</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
             {{-- <li class="pcoded-hasmenu active pcoded-trigger">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>

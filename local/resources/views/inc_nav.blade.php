@@ -1,10 +1,10 @@
-<nav class="navbar header-navbar  pcoded-header" header-theme="theme3" >
+<nav class="navbar header-navbar  pcoded-header" header-theme="theme2">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="ti-menu"></i>
             </a>
-            <div class="mobile-search">
+            {{-- <div class="mobile-search">
                 <div class="header-search">
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
@@ -14,8 +14,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <a href="index.html">
+            </div> --}}
+            <a href="{{ route('productlist')}}">
                 <img class="img-fluid" src="{{url('files/assets/images/logo.png')}}" alt="Theme-Logo" />
             </a>
             <a class="mobile-options">
@@ -28,7 +28,7 @@
                 <li>
                     <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
                 </li>
-                <li class="header-search">
+                {{-- <li class="header-search">
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
                             <span class="input-group-addon search-close"><i class="ti-close"></i></span>
@@ -36,15 +36,15 @@
                             <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="#!" onclick="javascript:toggleFullScreen()">
                         <i class="ti-fullscreen"></i>
                     </a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="nav-right">
-                <li class="header-notification">
+                {{-- <li class="header-notification">
                     <a href="#!">
                         <i class="ti-bell"></i>
                         <span class="badge bg-c-pink"></span>
@@ -85,7 +85,7 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="user-profile header-notification">
                     <a href="#!">
                         <img src="{{url('files/assets/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
@@ -93,7 +93,7 @@
                         <i class="ti-angle-down"></i>
                     </a>
                     <ul class="show-notification profile-notification">
-                        <li>
+                        {{-- <li>
                             <a href="#!">
                                 <i class="ti-settings"></i> Settings
                             </a>
@@ -112,7 +112,7 @@
                             <a href="auth-lock-screen.html">
                                 <i class="ti-lock"></i> Lock Screen
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('user.logout') }}">
                                 <i class="ti-layout-sidebar-left"></i> Logout

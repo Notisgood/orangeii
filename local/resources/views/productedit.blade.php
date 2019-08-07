@@ -124,7 +124,7 @@
 </form>
 
 </div>
-<div class="md-modal md-effect-5" id="modal-5">
+{{-- <div class="md-modal md-effect-5" id="modal-5">
     <div class="md-content">
         <h3>เพิ่มสินค้าตัวใหม่</h3>
         <div>
@@ -252,7 +252,7 @@
 
         </div>
     </div>
-</div>
+</div> --}}
 <div class="md-overlay"></div>
 @endsection
 @section('scripts')

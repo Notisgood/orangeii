@@ -53,6 +53,10 @@
 </body>
 @include('inc_footer')
 @yield('scripts')
-
+<script type="text/javascript">
+    $(document).ready(function(){
+   $('.pcoded-header').attr('header-theme','theme2');
+    });
+</script>   
 
 </html>

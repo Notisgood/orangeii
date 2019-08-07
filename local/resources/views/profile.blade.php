@@ -1,7 +1,7 @@
 @extends('main')
 @section('css')
 
-@endsection('css')
+@endsection()
 @section('content')
 <div class="card-block">
 <!--    <h4 class="sub-title">Basic Inputs</h4>-->
