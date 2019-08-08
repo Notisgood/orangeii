@@ -14,7 +14,7 @@
             <li class="breadcrumb-item" style="margin-top: 20px;">
                 <a href="index.html"> <i class="fa fa-home"></i> </a>
             </li>
-            <li class="breadcrumb-item" style="margin-top: 20px;"><a href="#!">นำสินค้าออก</a>
+            <li class="breadcrumb-item" style="margin-top: 20px;"><a href="#!">บันทึกการทำรายการ</a>
             </li>
         </ul>
 

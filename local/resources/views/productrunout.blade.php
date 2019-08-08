@@ -5,9 +5,9 @@
 
         <ul class="breadcrumb-title">
             <li class="breadcrumb-item" style="margin-top: 20px;">
-                <a href="#!"> <i class="fa fa-home"></i> </a>
+                <a href="index.html"> <i class="fa fa-home"></i> </a>
             </li>
-            <li class="breadcrumb-item" style="margin-top: 20px;"><a href="#!">สินค้าใกล้หมดสต็อก</a>
+            <li class="breadcrumb-item" style="margin-top: 20px;"><a href="#!">สินค้าใกล้หมดอายุ</a>
             </li>
         </ul>
 
@@ -22,29 +22,25 @@
             <thead>
                 <tr>
                     <th>ลำดับ</th>
-                    <th>รหัสสินค้า</th>
-                    <th>ประเภทสินค้า</th>
-                    <th>หน่วย</th>
-                    <th>นับเป็น</th>
+                    <th>LOT</th>
+                    <th>รายการสินค้า</th>
+                    <th>สถานะสินค้า</th>
                     <th>จำนวน</th>
-                    <th>รหัส บ/ช</th>
+                    <th>วันที่</th>
+                    <th>โดย</th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach($productexplist as $key => $r)
-                @if($r->product_amount<$r->product_min) 
-                <?php $style="background-color:#FA8072;"; ?> 
-                @else <?php $style=""; ?> 
-                @endif 
-                <tr style="{{$style}}">
+                @foreach($productOutList as $key => $r)
+                <tr style="background-color:#FA8072">
                     <td>{{  $key+1 }}</td>
+                    <td>{{ $r->product_log_detail }}</td>
                     <td>{{ $r->product_barcode }}</td>
-                    <td>{{ $r->product_detail }}</td>
-                    <td>{{ $r->product_code }}</td>
-                    <td>{{ $r->product_unit }}</td>
-                    <td>{{ $r->product_amount }}</td>
-                    <td>{{ $r->product_replace }}</td>
+                    <td>{{ $r->product_status_detail }}</td>
+                    <td>{{ $r->product_log_amount }}</td>
+                    <td>{{ $r->product_log_date }}</td>
+                    <td>{{ $r->product_log_by }}</td>
 
                     </tr>
 
@@ -53,19 +49,18 @@
             </tbody>
             <tfoot>
                 <th>ลำดับ</th>
-                <th>รหัสประเภท</th>
-                <th>ประเภทสินค้า</th>
-                <th>ตัวคูณ</th>
-                <th>รหัสประเภท</th>
-                <th>หน่วย</th>
-                <th>สินค้าทดแทน</th>
-
+                    <th>LOT</th>
+                    <th>รายการสินค้า</th>
+                    <th>สถานะสินค้า</th>
+                    <th>จำนวน</th>
+                    <th>วันที่</th>
+                    <th>โดย</th>
                 </tr>
             </tfoot>
         </table>
     </div>
 </div>
-
+{{-- 
 <div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -101,5 +96,5 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

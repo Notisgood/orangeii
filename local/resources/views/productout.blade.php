@@ -122,9 +122,13 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">จำนวน</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control" name="product_log_amount" id="product_log_amount"
                                  required autocomplete="off" maxlength="11">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="code" name="code" readonly
+                            autocomplete="off">
                         </div>
                         <label class="col-sm-2 col-form-label text-center">นำออกโดย</label>
                         <div class="col-sm-4">
@@ -178,7 +182,7 @@
     </div>
 </div>
 <div class="md-overlay"></div>
-<div class="modal fade" id="large-Modal"  role="dialog">
+{{-- <div class="modal fade" id="large-Modal"  role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -242,7 +246,7 @@
                 </form>
             </div>
         </div>
-    </div>
+</div> --}}
 @endsection
 @section('scripts')
 <script src="{{asset('/files/myscript.js')}}"></script>
@@ -274,6 +278,7 @@ $(document).ready(function(){
             success: function(data) {
                 $("#uid").val(data.member.uid);
                 $("#detail").val(data.member.product_detail);
+                $("#code").val(data.member.product_code);
                 var mystr = data.member.product_barcode;
                 var myarr = mystr.split("-");
                 var myvar = myarr[1] + ":" + myarr[2];

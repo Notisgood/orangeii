@@ -12,11 +12,13 @@ Route::get('dashboard', 'productController@dashboard')->name('dashboard');
 //register start
 Route::post('add', 'MemberController@add')->name('add');
 Route::get('addstaff', 'MemberController@addstaff')->name('addstaff');
+Route::get('access', 'MemberController@access')->name('access');
 Route::get('register', 'productController@register')->name('register');
 //register end
 
 Route::get('productlist', 'productController@productlist')->name('productlist');
 Route::get('productexp', 'productController@productexp')->name('productexp');
+Route::get('productrunout', 'productController@productrunout')->name('productrunout');
 Route::get('productin', 'productController@productin')->name('productin');
 Route::get('productout', 'productController@productout')->name('productout');
 Route::get('productedit/{id}', 'productController@productedit')->name('productedit');
@@ -34,6 +36,7 @@ Route::get('/productfindday', 'productController@productfindday')->name('product
 
 // ajax request
 Route::post('/getProduct','productController@getProduct')->name('getProduct');
+Route::post('/getMember','MemberController@getMember')->name('getMember');
 //update
 Route::post('update_product','productController@update')->name('update.product');
 
@@ -44,6 +47,8 @@ Route::post('/inProductType','productController@inProductType');
 Route::post('/inProductClass','productController@inProductClass');
 Route::post('/inProductIn','productController@inProductIn')->name('inProductIn');
 Route::post('/inProductOut','productController@inProductOut')->name('inProductOut');
+Route::post('/accessadd','MemberController@accessadd')->name('accessadd');
+
 //forloop insert
 Route::get('/addlot','productController@addlot');
 

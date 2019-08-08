@@ -43,8 +43,8 @@
             </thead>
             <tbody>
                 @foreach($productlist as $key => $r)
-
-                    {{-- <tr style="background-color:#{{ $r->ifmin}}"> --}}
+                @if($r->product_amount<$r->product_min) <?php $style="background-color:#FA8072;"; ?> @else <?php $style=""; ?> @endif <tr
+                    style="{{$style}}">                   
                     <td>{{ $key+1 }}</td>
                     <td>{{ $r->product_barcode }}</td>
                     <td>{{ $r->product_class_detail }}</td>
@@ -59,8 +59,8 @@
                     <td class=" icon-btn">
 
                         <div>
-                            <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-secondary btn-sm ">View  <i
-                                    class="icofont icofont-eye-alt"></i></a>
+                            {{-- <a href="" class="btn btn-secondary btn-sm ">View  <i
+                                    class="icofont icofont-eye-alt"></i></a> --}}
                             <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-primary btn-sm ">Edit <i
                                     class=" fa fa-pencil"></i></a>
 
@@ -225,9 +225,28 @@
                             <label class="col-sm-2 col-form-label">ราคามาตราฐาน</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="product_price" id="product_price" maxlength="11"
-                                    onkeyup="checkVlue('product_price')" required autocomplete="off">
+                                    required autocomplete="off">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">จำนวนสินค้า</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="product_amount" autocomplete="off" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">สินค้าขั้นต่ำ</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="product_min" autocomplete="off" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">จำนวนวันหมดอายุ</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="product_exp" autocomplete="off" maxlength="11">
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">สินค้าทดแทน</label>
                             <div class="col-sm-10">
@@ -240,7 +259,7 @@
             <div class="modal-footer">
                     <button type="submit" class="btn btn-primary waves-effect col "
                     >ยืนยัน</button>
-                <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">ยกเลิก</button>
+                <button type="reset" class="btn btn-default waves-effect col " >ยกเลิก</button>
             </div>
             </form>
         </div>

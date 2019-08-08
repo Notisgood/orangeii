@@ -136,7 +136,8 @@
                     
 				},				
 			},
-			
+			dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
 			columns: [
                 // {
                 //     "orderable":      false,

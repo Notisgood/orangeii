@@ -220,13 +220,30 @@ class productController extends Controller
 
     }
     ////*********************************************************************************************************//
+    public function productrunout()
+    { 
+        $product_out = DB::table('product_log')
+            ->join('product_status', 'product_log.product_status_id', '=', 'product_status.product_status_id')
+            ->join('product', 'product.uid', '=', 'product_log.product_uid')
+            ->whereDate('product_log_exp','<',DB::raw('CURDATE()'))
+            ->get();
+
+           
+        return view('productrunout',
+            array(
+                'productOutList' => $product_out,
+                
+            ));
+    }
 
     public function productlog()
-    {
+    { 
         $product_out = DB::table('product_log')
             ->join('product_status', 'product_log.product_status_id', '=', 'product_status.product_status_id')
             ->join('product', 'product.uid', '=', 'product_log.product_uid')
             ->get();
+
+           
         return view('productlog',
             array(
                 'productOutList' => $product_out,
@@ -358,17 +375,20 @@ class productController extends Controller
 //**" insert  "******************************************************************************################ */
     public function inRegister(Request $request)
     {
-        //เอา insert_ID
+        //เอา insert_ID //inserProductlist
         $last_id_employee = DB::table('product')->insertGetId([
             'product_barcode' => $request->input('product_barcode'),
             'product_detail' => $request->input('product_detail'),
             'product_unit' => $request->input('product_unit'),
             'product_group' => $request->input('product_group'),
-            'product_amount' => '0',
+            'product_amount' => $request->input('product_amount'),
             'product_acc' => $request->input('product_acc'),
             'product_price' => $request->input('product_price'),
             'product_replace' => $request->input('product_replace'),
             'product_class_no' => $request->input('product_class_no'),
+            'product_min' => $request->input('product_min'),
+            'product_exp' => $request->input('product_exp'),
+
         ]);
         return redirect()->route('productlist');
     }
@@ -398,6 +418,9 @@ class productController extends Controller
 
     public function inProductIn(Request $request)
     {
+        $logexp = $request->input('logexp');
+        $adate = date('Y-m-d');
+        $exple = date("Y-m-d",strtotime("+$logexp days",strtotime($adate)));
         //เอา insert_ID
         $barcodelot = $request->input('barcodelot').$request->input('lot');
         $last_id_employe1e = DB::table('product_log')->insertGetId([
@@ -409,6 +432,7 @@ class productController extends Controller
             'product_status_id' => '1',
             'product_log_date' => date('Y-m-d H:i:s'),
             'lot_barcode' => $barcodelot,
+            'product_log_exp' => $exple,
         ]);
         $member =   DB::table('product_log')
             ->where('product_log_id',$last_id_employe1e)
@@ -461,6 +485,7 @@ class productController extends Controller
     public function getProduct(Request $request)      
     {   
         $member =   DB::table('product')
+        ->join('product_type', 'product.product_group', '=', 'product_type.uid_product_type')
             ->where('product_barcode',$request->id)
             ->first();
             
@@ -473,6 +498,7 @@ class productController extends Controller
         
         echo json_encode($data);     
     }
+
 
     // public function json_change_categories_sub1(Request $request){
     //     $categories = $request->input('categories');    
