@@ -476,6 +476,8 @@ class productController extends Controller
             'product_price' => $request->input('product_price'),
             'product_replace' => $request->input('product_replace'),
             'product_class_no' => $request->input('product_class_no'),
+            'product_exp' => $request->input('product_exp'),
+            'product_min' => $request->input('product_min'),
         );
         DB::table('product')->where('uid', $request->input('id'))->update($data);
         return redirect()->route('productlist');

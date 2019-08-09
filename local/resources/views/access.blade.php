@@ -79,7 +79,7 @@
                         <div class="form-group row">
                                 <label class="col-sm-2 col-form-label"> ตำแหน่ง</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="role" name="role" required autocomplete="off">
+                                    <input type="text" class="form-control" id="role" name="role" required autocomplete="off" readonly>
                                     <input type="text" class="form-control" id="userid" name="userid" required autocomplete="off"  hidden>
 
                                 </div>

@@ -72,6 +72,7 @@ class MemberController extends Controller
 
     public function accessadd(Request $request)
     {
+        $count = DB::table('access_role')->where('roles_id_no', '=', $request->input('userid') )->count();
         $data = array(
             'roles_id_no' => $request->input('userid'),
             'access_menu1' => $request->input('access_menu1'),
@@ -80,7 +81,12 @@ class MemberController extends Controller
             'access_menu4' => $request->input('access_menu4'),
             'access_menu5' => $request->input('access_menu5'),
         );
-        DB::table('access_role')->insert($data);
+        if($count == 0){
+            DB::table('access_role')->insert($data);
+        }
+        else{
+            DB::table('access_role')->where('roles_id_no', '=', $request->input('userid'))->update($data);
+        }
         return redirect('access')->with('insert', '1');
     }
 

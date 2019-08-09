@@ -1,8 +1,7 @@
 @extends('main')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{asset('/files/bower_components/select2/css/select2.min.css')}}">
-<link rel="stylesheet" type="text/css"
-    href="{{asset('/files/bower_components/bootstrap-multiselect/css/bootstrap-multiselect.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('/files/bower_components/bootstrap-multiselect/css/bootstrap-multiselect.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('/files/bower_components/multiselect/css/multi-select.css')}}">
 
 
@@ -76,7 +75,7 @@
 
             <ul class="breadcrumb-title col-12" >
                     <li class="breadcrumb-item" style="margin-top: 20px;">
-                        <a href="index.html"> <i class="fa fa-home"></i> </a>
+                        <a href="#!"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item" style="margin-top: 20px;"><a href="#!">นำสินค้าเข้า</a>
                     </li>
@@ -116,8 +115,8 @@
                         <label class="col-sm-2 col-form-label text-center">LOT</label>
                         <div class="col-sm-4">
                                 <?php 
-                                $test = "40-HAM-0007"."123456";
-                                 DNS1D::getBarcodeSVG($test, "C128");
+                                $test = "#lot";
+                                  DNS1D::getBarcodeSVG($test, "C128");
                                  ?>
                             <input type="text" class="form-control" id="lot" name="product_log_detail" 
                                 autocomplete="off">

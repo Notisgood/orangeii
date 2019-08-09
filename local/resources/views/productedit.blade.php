@@ -35,7 +35,7 @@
                                     value="{{$productlist->product_detail}}" required autocomplete="off">
                             </div>
                             <div class="col-sm-3">
-                                    <label> หมวดหมู่สินค้าน</label>
+                                    <label> หมวดหมู่สินค้า</label>
                                     <select name="product_class_no" class="form-control" required>
                                             <option value="">-- กรุณาเลือก --</option>
                                             @foreach ($productclass as $key => $r)
@@ -49,33 +49,33 @@
                                             @endforeach
                                     </select>
                                 </div>
-                            <div class="col-sm-3">
-                                <label> นับเป็น</label>
-                                <select name="product_group" class="form-control" required>
-                                    <option value="">-- กรุณาเลือก --</option>
-                                    @foreach ($product_type as $key => $r)
-
-                                    <option {{$productlist->product_group == $r->uid_product_type ? 'selected' : '' }}
-                                        value="{{$r->uid_product_type}}">
-                                        {{$r->product_code}}
-                                    </option>
-
-
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row col-12">
                                 <div class="col-sm-3">
                                         <label> หน่วย</label>
                                         <input type="text" class="form-control" name="product_unit" maxlength="15"
                                             value="{{$productlist->product_unit}}" required autocomplete="off">
                                     </div>
+                        </div>
+                        <div class="form-group row col-12">
                             <div class="col-sm-3">
                                 <label> จำนวน</label>
                                 <input type="text" class="form-control" name="product_amount" maxlength="11"
                                     value="{{$productlist->product_amount}}" id="product_amount" onkeyup="checkVlue('product_amount')" required autocomplete="off">
                             </div>
+                            <div class="col-sm-3">
+                                    <label> นับเป็น</label>
+                                    <select name="product_group" class="form-control" required>
+                                        <option value="">-- กรุณาเลือก --</option>
+                                        @foreach ($product_type as $key => $r)
+    
+                                        <option {{$productlist->product_group == $r->uid_product_type ? 'selected' : '' }}
+                                            value="{{$r->uid_product_type}}">
+                                            {{$r->product_code}}
+                                        </option>
+    
+    
+                                        @endforeach
+                                    </select>
+                                </div>
                             <div class="col-sm-3">
                                 <label> รหัส บ/ช</label>
                                 <input type="text" class="form-control" name="product_acc" maxlength="15"
@@ -88,11 +88,22 @@
                             </div>
                         </div>
                           <div class="form-group row col-12">
-                                <div class="col-sm-12">
+                                <div class="col-sm-4">
+                                        <label> จำนวนวันหมดอายุ</label>
+                                        <input type="number" class="form-control" name="product_exp"
+                                            value="{{$productlist->product_exp}}" autocomplete="off" >
+                                </div>
+                                <div class="col-sm-4">
+                                        <label> สินค้าขั้นต่ำ</label>
+                                        <input type="number" class="form-control" name="product_min"
+                                            value="{{$productlist->product_min}}" autocomplete="off" >
+                                </div>
+                                <div class="col-sm">
                                         <label> สินค้าทดแทน</label>
                                         <input type="text" class="form-control" name="product_replace"
                                             value="{{$productlist->product_replace}}" autocomplete="off" >
-                                    </div>
+                                </div>
+                                
                           </div>
 
                 </div>
