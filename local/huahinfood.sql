@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2019 at 01:00 PM
+-- Generation Time: Aug 09, 2019 at 01:07 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -43,8 +43,9 @@ CREATE TABLE `access_role` (
 --
 
 INSERT INTO `access_role` (`access_uid`, `roles_id_no`, `access_menu1`, `access_menu2`, `access_menu3`, `access_menu4`, `access_menu5`) VALUES
-(1, 1, 'Y', 'Y', 'Y', 'Y', 'Y'),
-(9, 3, 'Y', 'Y', 'Y', 'Y', 'Y');
+(1, 1, 'N', 'Y', 'Y', 'N', 'N'),
+(9, 3, 'Y', 'Y', 'Y', 'Y', 'Y'),
+(11, 4, 'N', 'Y', 'N', 'N', 'N');
 
 -- --------------------------------------------------------
 
@@ -489,22 +490,22 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`uid`, `product_barcode`, `product_detail`, `product_unit`, `product_group`, `product_amount`, `product_min`, `product_acc`, `product_price`, `product_replace`, `product_class_no`, `product_exp`) VALUES
-(1, '40-BACO-0001', 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 'ย่อย', '1', 270, 50, 'ST02', '116.81', NULL, 3, NULL),
-(2, '40-BACO-0002', 'เบคอนหน้ากว้างสติ๊กเกอร์เขียว\r\n', 'ย่อย', '1', 30, 50, 'ST02', '112.00', NULL, 3, NULL),
-(3, '40-BACO-0003.1', 'เบคอนสไตล์อเมริกันสเต็กกี้ เกรด A 500 กรัม(ดิบ)', 'ย่อย', '2', 218, 50, 'ST02', '76.14', NULL, 3, NULL),
-(6, '40-BACO-0005', 'เบคอนสันนอกหมูติดหนัง Wiltshire Bacon (ดิบ)\r\n', 'ย่อย', '2', 90, 50, 'ST02', '1212.00', NULL, 3, NULL),
-(7, '40-BACO-0006', 'เบคอน US 4mm (9นิ้ว)', 'ย่อย', '2', 1291, 50, 'ST02', '1221.00', NULL, 3, NULL),
-(10, '40-HAM-0007', 'สันนอกหมูรมควันพริกไทยดำ', 'ย่อย', '2', 50, 50, 'ST02', '12312.00', NULL, 1, NULL),
-(12, '40-SAUS-0004', 'ไส่กรอกหมูชิพโพโลต้า 4 นิ้ว 1 กก. Chippolatas Sausag', 'ย่อย', '2', 51, 50, 'ST02', '211.00', NULL, 6, NULL),
-(17, '40-CHIC-0031', 'น่องไก่ล้วน B [Drum] 2 กก./แพ็ค', 'ย่อย', '2', 213, 50, 'ST02', '12312.00', NULL, 4, NULL),
-(18, '40-SAUS-1130', 'ไส้กรอกไก่หนังกรอบ 4 นิ้ว', 'ย่อย', '1', 820, 50, 'ST04', '1234.00', NULL, 6, NULL),
-(21, '40-SAUS-0032', 'ไส้กรอกไก่ 6\" Chicken HotDog', 'ย่อย', '1', 100, 50, 'ST04', '89.00', NULL, 6, NULL),
-(22, '20-2012-5006', 'ไส้หมู Hog Casing 28/30 AA', 'ย่อย', '2', 0, 50, 'ST03', '550.00', NULL, 2, NULL),
-(23, '20-2012-5023', 'ออริกาโน OREGANO GROUND 100 G.', 'ย่อย', '1', 0, 50, 'ST03', '430.00', NULL, 4, NULL),
-(24, '20-2012-5024', 'ลูกจันทร์ NUTMEG GRATED 1000 G.', 'ย่อย', '1', 0, 50, 'ST03', '820.00', NULL, 2, NULL),
+(1, '40-BACO-0001', 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 'ย่อย', '1', 465, 50, 'ST02', '116.81', NULL, 3, 7),
+(2, '40-BACO-0002', 'เบคอนหน้ากว้างสติ๊กเกอร์เขียว', 'ย่อย', '1', 30, 50, 'ST02', '112.00', NULL, 3, 7),
+(3, '40-BACO-0003.1', 'เบคอนสไตล์อเมริกันสเต็กกี้ เกรด A 500 กรัม(ดิบ)', 'ย่อย', '2', 218, 50, 'ST02', '76.14', NULL, 3, 7),
+(6, '40-BACO-0005', 'เบคอนสันนอกหมูติดหนัง Wiltshire Bacon (ดิบ)\r\n', 'ย่อย', '2', 90, 50, 'ST02', '1212.00', NULL, 3, 7),
+(7, '40-BACO-0006', 'เบคอน US 4mm (9นิ้ว)', 'ย่อย', '2', 1291, 50, 'ST02', '1221.00', NULL, 3, 7),
+(10, '40-HAM-0007', 'สันนอกหมูรมควันพริกไทยดำ', 'ย่อย', '2', 87, 50, 'ST02', '12312.00', NULL, 1, 7),
+(12, '40-SAUS-0004', 'ไส่กรอกหมูชิพโพโลต้า 4 นิ้ว 1 กก. Chippolatas Sausag', 'ย่อย', '2', 51, 50, 'ST02', '211.00', NULL, 6, 7),
+(17, '40-CHIC-0031', 'น่องไก่ล้วน B [Drum] 2 กก./แพ็ค', 'ย่อย', '2', 213, 50, 'ST02', '12312.00', NULL, 4, 7),
+(18, '40-SAUS-1130', 'ไส้กรอกไก่หนังกรอบ 4 นิ้ว', 'ย่อย', '1', 820, 50, 'ST04', '1234.00', NULL, 6, 7),
+(21, '40-SAUS-0032', 'ไส้กรอกไก่ 6\" Chicken HotDog', 'ย่อย', '1', 100, 50, 'ST04', '89.00', NULL, 6, 7),
+(22, '20-2012-5006', 'ไส้หมู Hog Casing 28/30 AA', 'ย่อย', '2', 122, 150, 'ST03', '550.00', NULL, 2, 7),
+(23, '20-2012-5023', 'ออริกาโน OREGANO GROUND 100 G.', 'ย่อย', '1', 2, 50, 'ST03', '430.00', NULL, 4, 7),
+(24, '20-2012-5024', 'ลูกจันทร์ NUTMEG GRATED 1000 G.', 'ย่อย', '1', 0, 50, 'ST03', '820.00', NULL, 2, 7),
 (26, '40-HAM -1003', 'ฮีสเตอร์แฮม Easter Ham', 'ย่อย', '1', 100, 50, 'ST04', '179.78', NULL, 1, 7),
-(27, '40-SAUS-0006', 'ไส้กรอกหมูคัมเบอร์แลนด์แฟตบอย 4 นิ้ว 1 กก.', 'ย่อย', '1', 100, 50, 'ST02', '166.71', NULL, 6, NULL),
-(28, '40-SAUS-0044', 'ไส้กรอกหมูสไปร์ซี่', 'ย่อย', '1', 100, 50, 'ST04', '139.00', NULL, 6, NULL),
+(27, '40-SAUS-0006', 'ไส้กรอกหมูคัมเบอร์แลนด์แฟตบอย 4 นิ้ว 1 กก.', 'ย่อย', '1', 100, 50, 'ST02', '166.71', NULL, 6, 7),
+(28, '40-SAUS-0044', 'ไส้กรอกหมูสไปร์ซี่', 'ย่อย', '1', 100, 50, 'ST04', '139.00', NULL, 6, 7),
 (29, '40-SAUS-0047', 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 'ย่อย', '1', 190, 50, 'ST04', '139.00', NULL, 6, 7);
 
 -- --------------------------------------------------------
@@ -578,7 +579,33 @@ INSERT INTO `product_log` (`product_log_id`, `product_uid`, `product_status_id`,
 (192, '29', 1, 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 23, '2019-08-08 07:10:07', NULL, 'somsak', '22119S0047', '40-SAUS-004722119S0047'),
 (193, '29', 1, 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 32, '2019-08-08 07:10:05', NULL, 'somsak', '22119S0047', '40-SAUS-004722119S0047'),
 (195, '29', 1, 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 11, '2019-08-08 07:17:44', '2019-08-06', 'somsak', '22119S0047', '40-SAUS-004722119S0047'),
-(196, '29', 1, 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 12, '2019-08-08 00:09:21', '2019-08-15', 'somsak', '22119S0047', '40-SAUS-004722119S0047');
+(196, '29', 1, 'ไส้กรอกคนักเวิร์ท 4.5 นิ้ว', 12, '2019-08-08 00:09:21', '2019-08-15', 'somsak', '22119S0047', '40-SAUS-004722119S0047'),
+(197, '10', 1, 'สันนอกหมูรมควันพริกไทยดำ', 12, '2019-08-08 20:51:37', '1970-01-01', 'somsak', '22219H0007', '40-HAM-000722219H0007'),
+(198, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 12, '2019-08-09 00:10:54', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(199, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 12, '2019-08-09 00:21:42', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(200, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 11, '2019-08-09 00:22:22', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(201, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 22, '2019-08-09 00:22:31', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(202, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 55, '2019-08-09 00:29:34', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(203, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 55, '2019-08-09 00:33:56', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(204, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 00:40:19', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(205, '10', 1, 'สันนอกหมูรมควันพริกไทยดำ', 12, '2019-08-09 00:50:30', '2019-08-16', 'somtum', '22219H0007', '40-HAM-000722219H0007'),
+(206, '10', 1, 'สันนอกหมูรมควันพริกไทยดำ', 12, '2019-08-09 00:51:14', '2019-08-16', 'somtum', '22219H0007', '40-HAM-000722219H0007'),
+(207, '10', 1, 'สันนอกหมูรมควันพริกไทยดำ', 1, '2019-08-09 00:51:49', '2019-08-16', 'somtum', '22219H0007', '40-HAM-000722219H0007'),
+(208, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:00:13', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(209, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:01:01', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(210, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:05:20', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(211, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:09:46', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(212, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:10:31', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(213, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:13:40', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(214, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:15:24', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(215, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:16:09', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(216, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 01:58:54', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(217, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 12, '2019-08-09 02:00:18', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(218, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 02:34:16', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(219, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 2, '2019-08-09 02:47:01', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(220, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 02:59:30', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(221, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 03:19:51', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001'),
+(222, '1', 1, 'เบคอนสันนอกหมูลอกหนัง Lean Short Back Bacon', 1, '2019-08-09 03:40:28', '2019-08-16', 'somtum', '22219B0001', '40-BACO-000122219B0001');
 
 --
 -- Triggers `product_log`
@@ -699,8 +726,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user_role`, `email`, `user_username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'somsak', 1, 'notnotnot@gmail.com', 'somsakza', '$2y$10$176o6K0aZsl2szy1Oqn3eeI.wxlIhY0zFPiulD3SDlyVjQCBdHs9m', 'B0Z2GL3he38dcsQ1118ZtcViGZhFsJ1ASrrqnaORcCCEc2UcRCLQHrbVU64m', '2019-07-29 21:19:11', '2019-07-29 21:19:11'),
-(3, 'somtum', 6, 'somzap@gmail.com', 'somtum', '$2y$10$SLxdacBKmNiT2tVk1cS1x.1vViRyzcQ.gcDN2P/8D3piRruw9pd3m', 'bLlsEojKDKOVYz06GH4lten2ZlNeuZhKULysagojSOZKyGJXXs2Kj7xMvmQW', NULL, NULL);
+(1, 'somsak', 1, 'notnotnot@gmail.com', 'somsakza', '$2y$10$176o6K0aZsl2szy1Oqn3eeI.wxlIhY0zFPiulD3SDlyVjQCBdHs9m', 'Qg550eiR1YoDupCNcOsfte2edsbVtWfcMV49CNY9wQNDeW1mAjLLu1C02G0N', '2019-07-29 21:19:11', '2019-07-29 21:19:11'),
+(3, 'somtum', 6, 'somzap@gmail.com', 'somtum', '$2y$10$SLxdacBKmNiT2tVk1cS1x.1vViRyzcQ.gcDN2P/8D3piRruw9pd3m', 'hr2jkMacRZnWj62KNeh5FmfTP5vNE5T37Xjtmd0kVC7QTu8SX13BbPp6n7Fs', NULL, NULL),
+(4, 'pupu po', 2, 'po@gmail.com', 'pupu', '$2y$10$G8XVOnuJcwJm4kqhZHkfsettB//clZWdtMvBHn5oRDc2hGO0rhqZG', 'Jk1ceKXVORJxp2hs8Mw9kDxk7rAAgaxFnhaOda7lSBkTjUnnWmzAcV8MqgFv', '2019-08-08 23:25:20', '2019-08-08 23:25:20');
 
 --
 -- Indexes for dumped tables
@@ -776,7 +804,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `access_role`
 --
 ALTER TABLE `access_role`
-  MODIFY `access_uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `access_uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `lot`
@@ -806,7 +834,7 @@ ALTER TABLE `product_class`
 -- AUTO_INCREMENT for table `product_log`
 --
 ALTER TABLE `product_log`
-  MODIFY `product_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `product_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
 -- AUTO_INCREMENT for table `product_type`
@@ -824,7 +852,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
