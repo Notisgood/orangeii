@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Huahinfood',
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
+        
         /*
          * Package Service Providers...
          */
@@ -230,6 +232,8 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+
     ],
 
 ];

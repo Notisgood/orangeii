@@ -28,7 +28,7 @@
         <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
             <thead>
                 <tr>
-                    <th>ลำดับ</th>
+                    <th>edit</th>
                     <th>รหัสสินค้า</th>
                     <th>หมวดหมู่สินค้า</th>
                     <th>รายละเอียด</th>
@@ -38,14 +38,23 @@
                     <th>รหัส บ/ช</th>
                     <th>ราคามาตราฐาน</th>
                     <th>สินค้าทดแทน</th>
-                    <th>edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($productlist as $key => $r)
                 @if($r->product_amount<$r->product_min) <?php $style="background-color:#FA8072;"; ?> @else <?php $style=""; ?> @endif <tr
-                    style="{{$style}}">                   
-                    <td>{{ $key+1 }}</td>
+                    style="{{$style}}"> 
+                    <td class=" icon-btn">
+
+                            <div>
+                                {{-- <a href="" class="btn btn-secondary btn-sm ">View  <i
+                                        class="icofont icofont-eye-alt"></i></a> --}}
+                                <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-info btn-sm ">Edit <i
+                                        class=" fa fa-pencil"></i></a>
+    
+                            </div>
+    
+                    </td>                  
                     <td>{{ $r->product_barcode }}</td>
                     <td>{{ $r->product_class_detail }}</td>
                     <td>{{ $r->product_detail }}</td>
@@ -55,18 +64,6 @@
                     <td>{{ $r->product_acc }}</td>
                     <td>{{ $r->product_price }}</td>
                     <td>{{ $r->product_replace }}</td>
-
-                    <td class=" icon-btn">
-
-                        <div>
-                            {{-- <a href="" class="btn btn-secondary btn-sm ">View  <i
-                                    class="icofont icofont-eye-alt"></i></a> --}}
-                            <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-primary btn-sm ">Edit <i
-                                    class=" fa fa-pencil"></i></a>
-
-                        </div>
-
-                    </td>
                     </tr>
                     @endforeach
             </tbody>

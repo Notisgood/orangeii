@@ -115,7 +115,7 @@
                         <label class="col-sm-2 col-form-label text-center">LOT</label>
                         <div class="col-sm-4">
                                 <?php 
-                                $test = "#lot";
+                                $test = "40-BACO-000122219B0001";
                                   DNS1D::getBarcodeSVG($test, "C128");
                                  ?>
                             <input type="text" class="form-control" id="lot" name="product_log_detail" 
@@ -172,6 +172,7 @@
                     <th>จำนวน</th>
                     <th>วันที่</th>
                     <th>โดย</th>
+                    <th>ปริ้น</th>
 
                 </tr>
             </thead>
@@ -208,74 +209,62 @@
 </div>
 
 
-{{-- <div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
+<div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">นำสินค้าเข้า</h4>
+                <h4 class="modal-title">ปริ้น barcode</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="card-block">
-                    <form name="myfrom" method="post" id="proin" action="{{ url('inProductIn') }}">
+                    <form name="myfrom" method="post" id="proin" action="{{url('printpdf')}}">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">รหัสสินค้า</label>
+                            <label class="col-sm-2 col-form-label">Barcode</label>
                             <div class="col-sm-10">
-                                <select name="product_uid" id="categories" onchange="setdata()"
-                                    class="js-example-basic-single form-control">
-                                    <option value="">เลือกประเภทสินค้า</option>
-                                    @foreach($productt as $types)
-                                    <option value="{{ $types->uid }}">
-                                        {{ $types->product_barcode.' :: '.$types->product_detail }}
-                                    </option>
-                                    @endforeach
-                                </select>
+                                    <input type="text" class="form-control" id="baco" name="baco" readonly
+                                    autocomplete="off">
+                                    <input type="hidden" class="form-control" id="id" name="id" readonly
+                                    autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">รายละเอียดสินค้า</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="detail" name="product_detail" readonly
+                                <input type="text" class="form-control" id="detaile" name="detaile" readonly
                                     autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">LOT</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="lot" name="product_log_detail" readonly
+                                <input type="text" class="form-control" id="loto" name="loto" readonly
                                     autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">จำนวน</label>
+                            <label class="col-sm-2 col-form-label">จำนวนสติ๊กเกอร์</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="product_log_amount"
-                                    id="product_log_amount"  required
+                                <input type="text" class="form-control" name="sticknum"
+                                    id="sticknum"  required
                                     autocomplete="off" maxlength="11">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">นำเข้าโดย</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="product_log_by" required
-                                    autocomplete="off">
                             </div>
                         </div>
                         
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary waves-effect col md-close">บันทึก</button>
+                <button type="submit" class="btn btn-primary waves-effect col md-close">บันทึก</button> 
 
                 <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">ยกเลิก</button>
             </div>
             </form>
         </div>
     </div>
-</div> --}}
+</div>
 
 @endsection
 
@@ -406,6 +395,7 @@ $(document).ready(function(){
                 proinn +=  '<td>'+data.member.product_log_amount+'</td>';
                 proinn +=  '<td>'+data.member.product_log_date+'</td>';
                 proinn +=  '<td>'+data.member.product_log_by+'</td>';
+                proinn +=  '<td class=" icon-btn"><div onclick="print('+data.member.product_log_id+',\''+ data.member.product_detail + '\',\''+ data.member.lot_barcode + '\',\''+ data.member.product_log_detail + '\')" > View  <i class="icofont icofont-eye-alt"></i></div></td>';
                 proinn +=  '</tr> ';
                 
                 $('#proinn').append(proinn);
@@ -417,6 +407,15 @@ $(document).ready(function(){
                 document.getElementById("barcode").focus();
             }
         });
+ }
+
+ function print(id,detail,baco,lot){
+    $('#id').val(id);
+    $("#detaile").val(detail);
+    $("#baco").val(baco);
+    $('#loto').val(lot);
+    console.log(detail,baco,lot);
+    $('#large-Modal').modal('show');
  }
 
  

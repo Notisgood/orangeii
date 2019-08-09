@@ -10,14 +10,14 @@ $permission = DB::table('access_role')->where('roles_id_no',Auth::user()->id)->f
                 <div class="pcoded-navigation-label">การจัดการ</div>
                 <li class="">
                     <a href="{{route('addstaff')}}">
-                        <span class="pcoded-micon"><i class="icofont icofont-ui-user"></i><b>N</b></span>
+                        <span class="pcoded-micon"><i class="icofont icofont-contact-add"></i><b>N</b></span>
                         <span class="pcoded-mtext">จัดการพนักงาน</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route('access')}}">
-                        <span class="pcoded-micon"><i class="icofont icofont-ui-user"></i><b>N</b></span>
+                        <span class="pcoded-micon"><i class="icofont icofont-id-card"></i><b>N</b></span>
                         <span class="pcoded-mtext">จัดการสิทธิ์</span>
                         <span class="pcoded-mcaret"></span>
                     </a>

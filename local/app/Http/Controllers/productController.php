@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use \Milon\Barcode\DNS1D;
+use PDF;
 
 class productController extends Controller
 {
@@ -502,6 +503,22 @@ class productController extends Controller
     }
 
 
+    public function printpdf(Request $request)
+    {
+        $data = [
+            'baco'      => $request->input('baco'),
+            'id'        => $request->input('baco'),
+            'detaile'   => $request->input('detaile'),
+            'loto'      => $request->input('loto'),
+            'sticknum'  => $request->input('sticknum'),
+
+        ];
+       
+
+        $pdf = PDF::loadView('form',['data' => $data],[],['title' => 'รายงานการขาย','format'=>'A4-L']);
+     return $pdf->stream();
+    }
+
     // public function json_change_categories_sub1(Request $request){
     //     $categories = $request->input('categories');    
     //     if(($categories=='1')||($categories=='2')){
@@ -511,6 +528,7 @@ class productController extends Controller
     //     }     
     //     return $query_type;
     // }
+
 
     
 

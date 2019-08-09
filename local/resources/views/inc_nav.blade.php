@@ -15,8 +15,9 @@
                     </div>
                 </div>
             </div> --}}
-            <a href="{{ route('productlist')}}">
-                <img class="img-fluid" src="{{url('files/assets/images/logo.png')}}" alt="Theme-Logo" />
+            <a href="{{ route('home')}}" >
+                {{-- <img class="img-fluid" src="{{url('files/assets/images/logo.png')}}" alt="Theme-Logo" /> --}}
+                Huahin Interfood
             </a>
             <a class="mobile-options">
                 <i class="ti-more"></i>

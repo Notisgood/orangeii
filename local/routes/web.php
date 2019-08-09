@@ -49,6 +49,9 @@ Route::post('/inProductIn','productController@inProductIn')->name('inProductIn')
 Route::post('/inProductOut','productController@inProductOut')->name('inProductOut');
 Route::post('/accessadd','MemberController@accessadd')->name('accessadd');
 
+// print pdf
+Route::post('/printpdf','productController@printpdf');
+Route::get('/form','productController@printpdf');
 //forloop insert
 Route::get('/addlot','productController@addlot');
 

@@ -61,7 +61,7 @@ class MemberController extends Controller
             'name' => $request->input('name'),
             'user_role' => $request->input('role'),
             'email' => $request->input('email'),
-            'user_username' => $request->input('name'),
+            'user_username' => $request->input('username'),
             'password' => bcrypt($request->input('password')),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
