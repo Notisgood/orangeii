@@ -246,7 +246,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">จำนวนสติ๊กเกอร์</label>
+                            <label class="col-sm-2 col-form-label">จำนวนแถวสติ๊กเกอร์</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="sticknum"
                                     id="sticknum"  required
@@ -257,9 +257,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary waves-effect col md-close">บันทึก</button> 
+                <button type="submit" class="btn btn-primary waves-effect col md-close">ปริ้น</button> 
 
-                <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">กลับ</button>
             </div>
             </form>
         </div>
