@@ -220,7 +220,7 @@
             </div>
             <div class="modal-body">
                 <div class="card-block">
-                    <form name="myfrom" method="post" id="proin" action="{{url('printpdf')}}">
+                    <form name="myfrom" method="post" id="proin" action="{{url('printpdf')}}" target="_blank">
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Barcode</label>

@@ -505,18 +505,26 @@ class productController extends Controller
 
     public function printpdf(Request $request)
     {
-        $data = [
+      /*  $data = [
             'baco'      => $request->input('baco'),
             'id'        => $request->input('baco'),
             'detaile'   => $request->input('detaile'),
             'loto'      => $request->input('loto'),
             'sticknum'  => $request->input('sticknum'),
 
-        ];
-       
+        ];*/
+        $qty = $request->input('sticknum');
+       $productlog = DB::table('product_log')
+           
+           ->join('product', 'product.uid', '=', 'product_log.product_uid')
+          ->join('product_type', 'product.product_group', '=', 'product_type.uid_product_type')
+           ->where('product_log_id',$request->input('id'))
+           ->first(); 
+//        $pdf = PDF::loadView('form',['qty'=>$qty,'productlog'=>$productlog],[],['format'=>['A4']]);
+//        return $pdf->stream('printbarcodesticker.pdf');
+        $pdf = PDF::loadView('form',['qty'=>$qty,'productlog'=>$productlog]);
 
-        $pdf = PDF::loadView('form',['data' => $data],[],['title' => 'รายงานการขาย','format'=>'A4-L']);
-     return $pdf->stream();
+            return $pdf->stream();
     }
 
     // public function json_change_categories_sub1(Request $request){
