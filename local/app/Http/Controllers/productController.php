@@ -262,6 +262,7 @@ class productController extends Controller
             ));
     }
 
+    //query edit
     public function productedit($id)
     {
         $product_list = DB::table('product')->where('uid', $id)
@@ -280,9 +281,12 @@ class productController extends Controller
 
     }
 
+    
+    // end query edit
+
     public function productlist()
     {
-        $product_code = DB::table('product')
+        $product_list = DB::table('product')
             ->join('product_type', 'product.product_group', '=', 'product_type.uid_product_type')
             ->join('product_class', 'product.product_class_no', '=', 'product_class.class_uid')
             ->get();
@@ -297,7 +301,7 @@ class productController extends Controller
             ->get();
         return view('productlist',
             array(
-                'productlist' => $product_code,
+                'productlist' => $product_list,
                 'producttype' => $product_type,
                 'productclass' => $product_class,
             ));
@@ -465,6 +469,8 @@ class productController extends Controller
     echo json_encode($data);    
     }
 
+
+    //update
     public function update(Request $request)
     {
         $data = array(
@@ -484,6 +490,27 @@ class productController extends Controller
         return redirect()->route('productlist');
     }
 
+    public function updatetype(Request $request)
+    {
+        $data = array(
+            'product_code' => $request->input('product_code'),
+            'product_multiply' => $request->input('product_multiply'),
+        );
+        DB::table('product_type')->where('uid_product_type', $request->input('id'))->update($data);
+        return redirect()->route('producttype');
+    }
+
+    public function updateclass(Request $request)
+    {
+        $data = array(
+            'product_class_code' => $request->input('product_class_code'),
+            'product_class_detail' => $request->input('product_class_detail'),
+        );
+        DB::table('product_class')->where('class_uid', $request->input('id'))->update($data);
+        return redirect()->route('productclass');
+    }
+
+    //ajax 
 
     public function getProduct(Request $request)      
     {   

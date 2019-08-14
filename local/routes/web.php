@@ -21,7 +21,6 @@ Route::get('productexp', 'productController@productexp')->name('productexp');
 Route::get('productrunout', 'productController@productrunout')->name('productrunout');
 Route::get('productin', 'productController@productin')->name('productin');
 Route::get('productout', 'productController@productout')->name('productout');
-Route::get('productedit/{id}', 'productController@productedit')->name('productedit');
 Route::get('productlot', 'productController@productlot')->name('productlot');
 Route::get('productclass', 'productController@productclass')->name('productclass');
 Route::get('producttype', 'productController@producttype')->name('producttype');
@@ -37,10 +36,16 @@ Route::get('/productfindday', 'productController@productfindday')->name('product
 // ajax request
 Route::post('/getProduct','productController@getProduct')->name('getProduct');
 Route::post('/getMember','MemberController@getMember')->name('getMember');
+
+
 //update
 Route::post('update_product','productController@update')->name('update.product');
 
+Route::post('updatetype','productController@updatetype')->name('updatetype');
+Route::post('updateclass','productController@updateclass')->name('updateclass');
 
+//edit
+Route::get('productedit/{id}', 'productController@productedit')->name('productedit');
 //insert
 Route::post('/inRegister','productController@inRegister');
 Route::post('/inProductType','productController@inProductType');

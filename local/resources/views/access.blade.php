@@ -29,11 +29,11 @@
                     <th>ลำดับ</th>
                     <th>ชื่อ</th>
                     <th>username</th>
-                    <th>การเข้าถึง</th>
-                    <th>การเข้าถึง</th>
-                    <th>การเข้าถึง</th>
-                    <th>การเข้าถึง</th>
-                    <th>การเข้าถึง</th>
+                    <th>การเข้าถึงการจัดการ</th>
+                    <th>การเข้าถึงการจัดการสินค้า</th>
+                    <th>การเข้าถึงการทำรายการ</th>
+                    <th>การเข้าถึงการจัดการหมวดหมู่สินค้า</th>
+                    <th>การเข้าถึงรายงาน</th>
 
                 </tr>
             </thead>
@@ -71,7 +71,7 @@
                     <form name="myfrom" method="post" action="{{ route('accessadd') }}">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ชื่อ</label>
+                            <label class="col-sm-2 col-form-label">username</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" name="name" required autocomplete="off" onchange="setdata()">
                             </div>

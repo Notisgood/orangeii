@@ -29,6 +29,7 @@
                     <th>ลำดับ</th>
                     <th>หมวดหมู่สินค้า</th>
                     <th>รายละเอียดหมวดหมู่</th>
+                    <th>แก้ไข</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +38,14 @@
                     <td>{{  $key+1 }}</td>
                     <td>{{ $r->product_class_code }}</td>
                     <td>{{ $r->product_class_detail }}</td>
+                    <td class=" icon-btn">
+
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit-Modal_{{$r->class_uid}}"><i class="fa fa-pencil"></i> แก้ไข</button>
+                        
+                    </td>  
+            
                 </tr>
+                
                 @endforeach
             </tbody>
             <tfoot>
@@ -45,6 +53,7 @@
                     <th>ลำดับ</th>
                     <th>หมวดหมู่สินค้า</th>
                     <th>รายละเอียดหมวดหมู่</th>
+                    <th>แก้ไข</th>
                 </tr>
             </tfoot>
         </table>
@@ -87,4 +96,47 @@
         </div>
     </div>
 </div>
+
+{{-- **************************************modal edit*************************************************** --}}
+@if(!empty($productclasslist))
+        @foreach($productclasslist as $key => $r)
+<div class="modal fade" id="edit-Modal_{{$r->class_uid}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">แก้ไขประเภทสินค้า</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-block">
+                    <form name="myfrom" method="post" action="{{ route('updateclass') }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" value="{{$r->class_uid}}" name="id">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">นับเป็น</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="product_class_code" id="code" value="{{$r->product_class_code}}" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">ตัวคูณ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="product_class_detail" id="multi"  value="{{$r->product_class_detail}}" required
+                                    autocomplete="off" >
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary waves-effect col md-close" id="prooo">บันทึก</button>
+                <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">ยกเลิก</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+@endif
 @endsection

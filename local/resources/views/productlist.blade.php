@@ -49,7 +49,7 @@
                             <div>
                                 {{-- <a href="" class="btn btn-secondary btn-sm ">View  <i
                                         class="icofont icofont-eye-alt"></i></a> --}}
-                                <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-info btn-sm ">Edit <i
+                                <a href="{{url('productedit/'.$r->uid)}}" class="btn btn-info btn-sm ">แก้ไข <i
                                         class=" fa fa-pencil"></i></a>
     
                             </div>
